@@ -1,0 +1,1057 @@
+/* =====================================================
+   PURE NATURE — OUR STORY
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f1e8;
+    color: #172018;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:root {
+    --dark: #172018;
+    --green: #536b43;
+    --cream: #f5f1e8;
+    --cream-dark: #e7dfcf;
+    --line: rgba(23,32,24,0.15);
+}
+
+
+/* ================= NAVBAR ================= */
+
+.story-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 5%;
+
+    color: white;
+
+    background: rgba(15,25,17,0.15);
+
+    backdrop-filter: blur(8px);
+}
+
+.story-logo {
+    font-size: 18px;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+.story-logo span {
+    font-weight: 300;
+}
+
+.story-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.story-nav a {
+    position: relative;
+
+    font-size: 11px;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.85;
+}
+
+.story-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: white;
+
+    transition: 0.3s;
+}
+
+.story-nav a:hover::after,
+.story-nav a.active::after {
+    width: 100%;
+}
+
+
+/* ================= MOBILE MENU ================= */
+
+.story-menu-button {
+    display: none;
+
+    border: 0;
+    background: transparent;
+
+    flex-direction: column;
+    gap: 5px;
+
+    cursor: pointer;
+}
+
+.story-menu-button span {
+    width: 24px;
+    height: 1px;
+    background: white;
+}
+
+.story-mobile-menu {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 900;
+
+    background: var(--dark);
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    transform: translateY(-100%);
+
+    transition: 0.5s ease;
+}
+
+.story-mobile-menu.open {
+    transform: translateY(0);
+}
+
+.story-mobile-menu a {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+
+/* ================= HERO ================= */
+
+.story-hero {
+    position: relative;
+
+    height: 100vh;
+
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.story-hero-image {
+    position: absolute;
+    inset: 0;
+
+    background:
+        url("images/story-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.04);
+}
+
+.story-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10,20,12,0.8),
+            rgba(10,20,12,0.2)
+        );
+}
+
+.story-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.story-hero-content p {
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.story-hero-content h1 {
+    font-size: clamp(60px, 9vw, 120px);
+
+    line-height: 0.88;
+
+    font-weight: 300;
+
+    letter-spacing: -5px;
+}
+
+.story-hero-content h1 em {
+    font-style: italic;
+}
+
+.story-hero-content span {
+    display: block;
+
+    max-width: 480px;
+
+    margin-top: 35px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.75);
+}
+
+.story-hero-bottom {
+    position: absolute;
+
+    bottom: 35px;
+    left: 5%;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.7;
+}
+
+
+/* ================= INTRO ================= */
+
+.story-intro {
+    padding: 140px 5%;
+
+    max-width: 1250px;
+
+    margin: auto;
+}
+
+.story-intro-label,
+.story-section-heading p,
+.timeline-heading p,
+.farmer-content > p,
+.nature-content > p,
+.story-cta > p {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: var(--green);
+
+    margin-bottom: 35px;
+}
+
+.story-intro-content {
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.8fr;
+
+    gap: 80px;
+
+    align-items: end;
+}
+
+.story-intro h2 {
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 0.92;
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+}
+
+.story-intro h2 em {
+    color: var(--green);
+}
+
+.story-intro-content > div p {
+    max-width: 420px;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #606a60;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================= STATEMENT ================= */
+
+.story-statement {
+    height: 750px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.story-statement-bg {
+    position: absolute;
+    inset: 0;
+
+    background:
+        url("images/story-milk.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.story-statement-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(15,25,17,0.55);
+}
+
+.story-statement-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+
+    width: 90%;
+
+    text-align: center;
+}
+
+.story-statement-content span {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.7;
+}
+
+.story-statement-content h2 {
+    margin-top: 30px;
+
+    font-size: clamp(50px, 7vw, 95px);
+
+    line-height: 0.9;
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+}
+
+.story-statement-content em {
+    font-style: italic;
+}
+
+
+/* ================= PRINCIPLES ================= */
+
+.story-principles {
+    padding: 130px 5%;
+
+    background: var(--cream-dark);
+}
+
+.story-section-heading {
+    max-width: 1250px;
+
+    margin: auto;
+}
+
+.story-section-heading h2,
+.timeline-heading h2 {
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 0.9;
+
+    font-weight: 300;
+
+    letter-spacing: -4px;
+}
+
+.story-section-heading h2 em,
+.timeline-heading h2 em {
+    color: var(--green);
+
+    font-style: italic;
+}
+
+.principles-grid {
+    max-width: 1250px;
+
+    margin: 80px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.principle {
+    min-height: 350px;
+
+    padding: 35px;
+
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+
+    transition: 0.4s ease;
+}
+
+.principle:last-child {
+    border-right: 1px solid var(--line);
+}
+
+.principle:hover {
+    background: rgba(255,255,255,0.4);
+
+    transform: translateY(-8px);
+}
+
+.principle > span {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--green);
+}
+
+.principle-icon {
+    margin-top: 65px;
+
+    font-size: 40px;
+
+    color: var(--green);
+}
+
+.principle h3 {
+    margin-top: 25px;
+
+    font-size: 25px;
+
+    font-weight: 400;
+}
+
+.principle p {
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #687167;
+}
+
+
+/* ================= TIMELINE ================= */
+
+.story-timeline {
+    padding: 140px 5%;
+
+    background: var(--cream);
+}
+
+.timeline-heading {
+    max-width: 1250px;
+
+    margin: auto;
+}
+
+.timeline {
+    max-width: 1000px;
+
+    margin: 90px auto 0;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 120px 1fr;
+
+    gap: 50px;
+
+    padding: 50px 0;
+
+    border-top: 1px solid var(--line);
+}
+
+.timeline-number {
+    font-size: 12px;
+
+    color: var(--green);
+
+    letter-spacing: 2px;
+}
+
+.timeline-content small {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--green);
+}
+
+.timeline-content h3 {
+    max-width: 600px;
+
+    margin-top: 18px;
+
+    font-size: clamp(30px, 4vw, 55px);
+
+    line-height: 1;
+
+    font-weight: 300;
+}
+
+.timeline-content p {
+    max-width: 550px;
+
+    margin-top: 20px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #687168;
+}
+
+
+/* ================= FARMER ================= */
+
+.farmer-section {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 700px;
+}
+
+.farmer-image {
+    min-height: 600px;
+}
+
+.image-placeholder {
+    height: 100%;
+
+    min-height: 600px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #73836a,
+            #344330
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(255,255,255,0.7);
+
+    text-align: center;
+}
+
+.image-placeholder span {
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.image-placeholder small {
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    opacity: 0.6;
+}
+
+.farmer-content {
+    background: var(--green);
+
+    color: white;
+
+    padding: 12% 10%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.farmer-content > p {
+    color: rgba(255,255,255,0.65);
+}
+
+.farmer-content h2 {
+    font-size: clamp(45px, 5vw, 70px);
+
+    line-height: 0.95;
+
+    font-weight: 300;
+
+    letter-spacing: -3px;
+}
+
+.farmer-content h2 em {
+    font-style: italic;
+}
+
+.farmer-description {
+    max-width: 450px;
+
+    margin: 30px 0;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,0.75);
+}
+
+.story-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    border: 1px solid white;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    transition: 0.3s ease;
+}
+
+.story-button:hover {
+    background: white;
+
+    color: var(--dark);
+}
+
+.story-button.dark {
+    background: var(--dark);
+
+    border-color: var(--dark);
+
+    color: white;
+}
+
+
+/* ================= NATURE ================= */
+
+.nature-section {
+    min-height: 700px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(25,38,27,0.75),
+            rgba(25,38,27,0.75)
+        ),
+        url("images/story-nature.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: white;
+
+    padding: 10%;
+}
+
+.nature-content {
+    max-width: 800px;
+}
+
+.nature-content > p:first-child {
+    color: rgba(255,255,255,0.65);
+}
+
+.nature-content h2 {
+    font-size: clamp(55px, 8vw, 105px);
+
+    line-height: 0.88;
+
+    font-weight: 300;
+
+    letter-spacing: -5px;
+}
+
+.nature-content h2 em {
+    font-style: italic;
+}
+
+.nature-text {
+    max-width: 500px;
+
+    margin-top: 35px;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,0.72);
+}
+
+
+/* ================= CTA ================= */
+
+.story-cta {
+    text-align: center;
+
+    padding: 140px 5%;
+
+    background: var(--cream-dark);
+}
+
+.story-cta h2 {
+    font-size: clamp(55px, 8vw, 105px);
+
+    line-height: 0.88;
+
+    font-weight: 300;
+
+    letter-spacing: -5px;
+}
+
+.story-cta h2 em {
+    color: var(--green);
+
+    font-style: italic;
+}
+
+.story-cta .story-button {
+    margin-top: 45px;
+}
+
+
+/* ================= FOOTER ================= */
+
+.story-footer {
+    background: var(--dark);
+
+    color: white;
+
+    padding: 80px 5% 30px;
+}
+
+.story-footer-top {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+.story-footer-top > div > p {
+    margin-top: 25px;
+
+    color: rgba(255,255,255,0.5);
+
+    line-height: 1.8;
+}
+
+.story-footer-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.story-footer-links strong {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.4);
+
+    margin-bottom: 10px;
+}
+
+.story-footer-links a {
+    font-size: 14px;
+
+    color: rgba(255,255,255,0.75);
+}
+
+.story-footer-bottom {
+    max-width: 1250px;
+
+    margin: 70px auto 0;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    color: rgba(255,255,255,0.4);
+}
+
+
+/* ================= REVEAL ================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1050px) {
+
+    .story-nav {
+        display: none;
+    }
+
+    .story-menu-button {
+        display: flex;
+    }
+
+    .story-intro-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .principle:nth-child(2) {
+        border-right: 1px solid var(--line);
+    }
+
+    .principle:nth-child(3),
+    .principle:nth-child(4) {
+        border-top: 0;
+    }
+
+    .farmer-section {
+        grid-template-columns: 1fr;
+    }
+
+    .farmer-content {
+        min-height: 600px;
+    }
+
+    .story-footer-top {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .story-navbar {
+        padding: 20px 6%;
+    }
+
+    .story-logo {
+        font-size: 15px;
+
+        letter-spacing: 3px;
+    }
+
+    .story-hero {
+        min-height: 100svh;
+    }
+
+    .story-hero-content {
+        width: 88%;
+    }
+
+    .story-hero-content h1 {
+        font-size: 17vw;
+
+        letter-spacing: -3px;
+    }
+
+    .story-hero-content span {
+        font-size: 14px;
+    }
+
+    .story-intro {
+        padding: 90px 6%;
+    }
+
+    .story-intro h2 {
+        letter-spacing: -2px;
+    }
+
+    .story-statement {
+        height: 600px;
+    }
+
+    .story-statement-content h2 {
+        letter-spacing: -2px;
+    }
+
+    .story-principles,
+    .story-timeline {
+        padding: 90px 6%;
+    }
+
+    .principles-grid {
+        grid-template-columns: 1fr;
+
+        margin-top: 50px;
+    }
+
+    .principle,
+    .principle:nth-child(2),
+    .principle:nth-child(3),
+    .principle:nth-child(4) {
+        border: 0;
+
+        border-top: 1px solid var(--line);
+    }
+
+    .principle {
+        min-height: 300px;
+    }
+
+    .timeline {
+        margin-top: 50px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 50px 1fr;
+
+        gap: 20px;
+
+        padding: 40px 0;
+    }
+
+    .timeline-content h3 {
+        font-size: 32px;
+    }
+
+    .farmer-content {
+        padding: 80px 6%;
+    }
+
+    .nature-section {
+        min-height: 600px;
+
+        padding: 15% 6%;
+    }
+
+    .nature-content h2,
+    .story-cta h2 {
+        letter-spacing: -3px;
+    }
+
+    .story-cta {
+        padding: 90px 6%;
+    }
+
+    .story-footer {
+        padding: 65px 6% 25px;
+    }
+
+    .story-footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .story-footer-top > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .story-footer-bottom {
+        flex-direction: column;
+
+        gap: 15px;
+
+        margin-top: 50px;
+    }
+
+}

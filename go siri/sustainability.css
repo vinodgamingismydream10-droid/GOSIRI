@@ -1,0 +1,1356 @@
+/* =========================================================
+   PURE NATURE — SUSTAINABILITY
+   ========================================================= */
+
+:root {
+    --dark: #172018;
+    --dark-soft: #202b21;
+
+    --green: #536b43;
+    --green-light: #71845f;
+
+    --cream: #f5f1e8;
+    --cream-dark: #e7dfcf;
+
+    --white: #ffffff;
+
+    --line: rgba(23, 32, 24, 0.15);
+    --light-line: rgba(255, 255, 255, 0.18);
+
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.sustainability-navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 82px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+
+    z-index: 1000;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.sustainability-navbar.scrolled {
+    background: rgba(245, 241, 232, 0.94);
+
+    color: var(--dark);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+}
+
+.sustainability-logo {
+    font-family: var(--serif);
+
+    font-size: 1.25rem;
+
+    letter-spacing: 0.05em;
+
+    font-weight: bold;
+}
+
+.sustainability-logo span {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.sustainability-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.sustainability-nav a {
+    position: relative;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    opacity: 0.85;
+
+    transition: opacity 0.3s ease;
+}
+
+.sustainability-nav a:hover,
+.sustainability-nav a.active {
+    opacity: 1;
+}
+
+.sustainability-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: currentColor;
+
+    transition: width 0.3s ease;
+}
+
+.sustainability-nav a:hover::after,
+.sustainability-nav a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+   ========================================================= */
+
+.sustainability-menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.sustainability-menu-button span {
+    display: block;
+
+    width: 24px;
+    height: 1px;
+
+    margin: 5px auto;
+
+    background: currentColor;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.sustainability-mobile-menu {
+    position: fixed;
+
+    top: 82px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 8vw;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+
+    background: var(--dark);
+
+    transform: translateY(-120%);
+
+    transition: transform 0.5s ease;
+
+    z-index: 999;
+}
+
+.sustainability-mobile-menu.open {
+    transform: translateY(0);
+}
+
+.sustainability-mobile-menu a {
+    color: white;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.sustainability-hero {
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    color: white;
+}
+
+.sustainability-hero-bg {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #71845f,
+            #344732 45%,
+            #172018
+        ),
+        url("images/sustainability-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.04);
+
+    animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+
+    from {
+        transform: scale(1.04);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.sustainability-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 20, 13, 0.84),
+            rgba(12, 20, 13, 0.25)
+        );
+}
+
+.sustainability-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 90%);
+
+    margin-left: 8vw;
+
+    padding-top: 70px;
+}
+
+.eyebrow {
+    font-size: 0.68rem;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+}
+
+.sustainability-hero h1 {
+    font-family: var(--serif);
+
+    font-size: clamp(4rem, 8vw, 8.5rem);
+
+    font-weight: normal;
+
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+
+    margin-bottom: 35px;
+}
+
+.sustainability-hero h1 em {
+    font-weight: normal;
+}
+
+.hero-description {
+    max-width: 550px;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.sustainability-scroll {
+    position: absolute;
+
+    left: 8vw;
+    bottom: 35px;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.18em;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.sustainability-intro {
+    padding: 140px 8vw;
+}
+
+.intro-label {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.18em;
+
+    margin-bottom: 70px;
+}
+
+.intro-grid {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 10vw;
+}
+
+.intro-grid h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3rem, 5vw, 6rem);
+
+    font-weight: normal;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.04em;
+}
+
+.intro-copy {
+    padding-top: 10px;
+}
+
+.intro-copy p {
+    max-width: 520px;
+
+    margin-bottom: 25px;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+    color: #4b554c;
+}
+
+
+/* =========================================================
+   FEATURE
+   ========================================================= */
+
+.sustainability-feature {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 700px;
+
+    background: var(--dark);
+
+    color: white;
+}
+
+.feature-image {
+    min-height: 650px;
+
+    padding: 25px;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+
+    min-height: 500px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #536b43,
+            #172018
+        ),
+        url("images/soil.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.16em;
+}
+
+.feature-content {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 10vw;
+}
+
+.feature-content h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3rem, 5vw, 6rem);
+
+    font-weight: normal;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.04em;
+
+    margin-bottom: 40px;
+}
+
+.feature-content p:not(.eyebrow) {
+    max-width: 500px;
+
+    margin-bottom: 20px;
+
+    line-height: 1.85;
+
+    color: rgba(255, 255, 255, 0.68);
+}
+
+
+/* =========================================================
+   PILLARS
+   ========================================================= */
+
+.sustainability-pillars {
+    padding: 150px 8vw;
+}
+
+.pillars-heading {
+    margin-bottom: 80px;
+}
+
+.pillars-heading h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3.5rem, 6vw, 7rem);
+
+    font-weight: normal;
+
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+}
+
+.pillar-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid var(--line);
+}
+
+.pillar {
+    min-height: 390px;
+
+    padding: 35px 30px;
+
+    border-right: 1px solid var(--line);
+
+    transition:
+        background 0.4s ease,
+        transform 0.4s ease;
+}
+
+.pillar:last-child {
+    border-right: 0;
+}
+
+.pillar:hover {
+    background: var(--cream-dark);
+
+    transform: translateY(-8px);
+}
+
+.pillar-number {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.1em;
+}
+
+.pillar-icon {
+    margin-top: 65px;
+
+    font-family: var(--serif);
+
+    font-size: 2.4rem;
+}
+
+.pillar h3 {
+    margin-top: 28px;
+
+    margin-bottom: 18px;
+
+    font-family: var(--serif);
+
+    font-size: 1.9rem;
+
+    font-weight: normal;
+}
+
+.pillar p {
+    color: #5d665e;
+
+    font-size: 0.9rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   LARGE IMAGE
+   ========================================================= */
+
+.sustainability-image-section {
+    padding: 0 8vw 150px;
+}
+
+.large-image-placeholder {
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #536b43,
+            #71845f,
+            #172018
+        ),
+        url("images/sustainability-land.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.16em;
+}
+
+
+/* =========================================================
+   CYCLE
+   ========================================================= */
+
+.circular-section {
+    padding: 150px 8vw;
+
+    background: #e9e3d5;
+}
+
+.circular-heading {
+    margin-bottom: 90px;
+}
+
+.circular-heading h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3.5rem, 6vw, 7rem);
+
+    font-weight: normal;
+
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+}
+
+.cycle {
+    position: relative;
+
+    max-width: 900px;
+
+    margin-left: auto;
+}
+
+.cycle-line {
+    position: absolute;
+
+    left: 18px;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: var(--line);
+}
+
+.cycle-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    gap: 30px;
+
+    padding: 30px 0;
+}
+
+.cycle-item > span {
+    position: relative;
+
+    z-index: 2;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--dark);
+
+    border-radius: 50%;
+
+    background: var(--cream-dark);
+
+    font-size: 0.65rem;
+}
+
+.cycle-item h3 {
+    font-family: var(--serif);
+
+    font-size: 2rem;
+
+    font-weight: normal;
+
+    margin-bottom: 8px;
+}
+
+.cycle-item p {
+    color: #60665f;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FARMER
+   ========================================================= */
+
+.farmer-section {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    background: var(--dark);
+
+    color: white;
+}
+
+.farmer-content {
+    padding: 10vw 8vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.farmer-content h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3rem, 5vw, 5.8rem);
+
+    font-weight: normal;
+
+    line-height: 0.94;
+
+    letter-spacing: -0.04em;
+
+    margin-bottom: 35px;
+}
+
+.farmer-content p:not(.eyebrow) {
+    max-width: 480px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    line-height: 1.85;
+
+    margin-bottom: 20px;
+}
+
+.farmer-image {
+    min-height: 650px;
+
+    padding: 25px;
+}
+
+.farmer-image .image-placeholder {
+    min-height: 600px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #71845f,
+            #344732
+        ),
+        url("images/farmer.jpg");
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.sustainability-button {
+    width: fit-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 22px;
+
+    border: 1px solid white;
+
+    color: white;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.14em;
+
+    margin-top: 20px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sustainability-button:hover {
+    background: white;
+
+    color: var(--dark);
+
+    transform: translateY(-3px);
+}
+
+.sustainability-button span {
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   IMPACT
+   ========================================================= */
+
+.impact-section {
+    padding: 150px 8vw;
+}
+
+.impact-heading {
+    margin-bottom: 80px;
+}
+
+.impact-heading h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3.5rem, 6vw, 7rem);
+
+    font-weight: normal;
+
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+}
+
+.impact-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid var(--line);
+}
+
+.impact-card {
+    padding: 35px 30px;
+
+    min-height: 300px;
+
+    border-right: 1px solid var(--line);
+}
+
+.impact-card:last-child {
+    border-right: 0;
+}
+
+.impact-card strong {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.1em;
+}
+
+.impact-card h3 {
+    margin-top: 70px;
+
+    margin-bottom: 15px;
+
+    font-family: var(--serif);
+
+    font-size: 1.9rem;
+
+    font-weight: normal;
+}
+
+.impact-card p {
+    color: #5d665e;
+
+    line-height: 1.8;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.sustainability-cta {
+    padding: 150px 8vw;
+
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            #647b55,
+            transparent 35%
+        ),
+        var(--dark);
+
+    color: white;
+}
+
+.cta-content {
+    max-width: 900px;
+}
+
+.sustainability-cta h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(4rem, 8vw, 8rem);
+
+    font-weight: normal;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.05em;
+
+    margin-bottom: 40px;
+}
+
+.cta-content > p:not(.eyebrow) {
+    max-width: 500px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.cta-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.sustainability-button.light {
+    border-color: white;
+}
+
+.sustainability-button.light:hover {
+    background: white;
+    color: var(--dark);
+}
+
+.sustainability-button.outline {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.sustainability-button.outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.sustainability-footer {
+    padding: 60px 8vw 30px;
+
+    background: #101610;
+
+    color: white;
+}
+
+.footer-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-bottom: 70px;
+
+    border-bottom: 1px solid var(--light-line);
+}
+
+.footer-logo {
+    font-family: var(--serif);
+
+    font-size: 1.4rem;
+}
+
+.footer-logo span {
+    font-style: italic;
+}
+
+.footer-top p {
+    text-align: right;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    line-height: 1.7;
+}
+
+.footer-bottom {
+    padding-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 0.7rem;
+}
+
+.footer-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .sustainability-nav {
+        display: none;
+    }
+
+    .sustainability-menu-button {
+        display: block;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .sustainability-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-image {
+        min-height: 500px;
+    }
+
+    .feature-content {
+        padding: 90px 8vw;
+    }
+
+    .pillar-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pillar:nth-child(2) {
+        border-right: 0;
+    }
+
+    .pillar:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-card:nth-child(2) {
+        border-right: 0;
+    }
+
+    .impact-card:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .farmer-section {
+        grid-template-columns: 1fr;
+    }
+
+    .farmer-image {
+        min-height: 500px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .sustainability-navbar {
+        height: 70px;
+
+        padding: 0 6vw;
+    }
+
+    .sustainability-mobile-menu {
+        top: 70px;
+    }
+
+    .sustainability-hero-content {
+        margin-left: 6vw;
+
+        width: 88%;
+
+        padding-top: 40px;
+    }
+
+    .sustainability-hero h1 {
+        font-size: clamp(3.5rem, 16vw, 5rem);
+
+        line-height: 0.92;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .sustainability-scroll {
+        left: 6vw;
+
+        bottom: 25px;
+    }
+
+    .sustainability-intro {
+        padding: 90px 6vw;
+    }
+
+    .intro-label {
+        margin-bottom: 45px;
+    }
+
+    .intro-grid h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .feature-image {
+        min-height: 380px;
+
+        padding: 15px;
+    }
+
+    .feature-content {
+        padding: 80px 6vw;
+    }
+
+    .feature-content h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .sustainability-pillars {
+        padding: 90px 6vw;
+    }
+
+    .pillars-heading {
+        margin-bottom: 55px;
+    }
+
+    .pillars-heading h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .pillar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pillar,
+    .pillar:nth-child(2) {
+        border-right: 0;
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    .pillar:last-child {
+        border-bottom: 0;
+    }
+
+    .pillar {
+        min-height: auto;
+
+        padding: 30px 5px 45px;
+    }
+
+    .pillar-icon {
+        margin-top: 45px;
+    }
+
+    .sustainability-image-section {
+        padding: 0 6vw 90px;
+    }
+
+    .large-image-placeholder {
+        min-height: 400px;
+    }
+
+    .circular-section {
+        padding: 90px 6vw;
+    }
+
+    .circular-heading {
+        margin-bottom: 55px;
+    }
+
+    .circular-heading h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .cycle-item {
+        grid-template-columns: 55px 1fr;
+
+        gap: 15px;
+    }
+
+    .cycle-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .farmer-content {
+        padding: 80px 6vw;
+    }
+
+    .farmer-content h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .farmer-image {
+        min-height: 380px;
+
+        padding: 15px;
+    }
+
+    .farmer-image .image-placeholder {
+        min-height: 350px;
+    }
+
+    .impact-section {
+        padding: 90px 6vw;
+    }
+
+    .impact-heading {
+        margin-bottom: 55px;
+    }
+
+    .impact-heading h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-card,
+    .impact-card:nth-child(2) {
+        border-right: 0;
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    .impact-card:last-child {
+        border-bottom: 0;
+    }
+
+    .impact-card {
+        min-height: auto;
+
+        padding: 30px 5px 45px;
+    }
+
+    .impact-card h3 {
+        margin-top: 45px;
+    }
+
+    .sustainability-cta {
+        padding: 100px 6vw;
+    }
+
+    .sustainability-cta h2 {
+        font-size: clamp(3.8rem, 16vw, 5.5rem);
+    }
+
+    .sustainability-button {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .sustainability-footer {
+        padding: 50px 6vw 25px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+
+        padding-bottom: 45px;
+    }
+
+    .footer-top p {
+        text-align: left;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}

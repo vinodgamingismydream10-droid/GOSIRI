@@ -1,0 +1,1105 @@
+/* =========================================================
+   PURE NATURE — WHY ORGANIC
+   ========================================================= */
+
+:root {
+    --dark: #172018;
+    --dark-soft: #202b21;
+    --green: #536b43;
+    --green-light: #71845f;
+
+    --cream: #f5f1e8;
+    --cream-dark: #e7dfcf;
+
+    --white: #ffffff;
+    --black: #101510;
+
+    --line: rgba(23, 32, 24, 0.15);
+    --light-line: rgba(255, 255, 255, 0.18);
+
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.organic-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 82px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    color: white;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.organic-navbar.scrolled {
+    background: rgba(245, 241, 232, 0.94);
+    color: var(--dark);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+}
+
+.organic-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+}
+
+.organic-logo span {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.organic-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.organic-nav a {
+    position: relative;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    opacity: 0.85;
+
+    transition: opacity 0.3s ease;
+}
+
+.organic-nav a:hover,
+.organic-nav a.active {
+    opacity: 1;
+}
+
+.organic-nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: currentColor;
+
+    transition: width 0.3s ease;
+}
+
+.organic-nav a:hover::after,
+.organic-nav a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+   ========================================================= */
+
+.organic-menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.organic-menu-button span {
+    display: block;
+
+    width: 24px;
+    height: 1px;
+
+    margin: 5px auto;
+
+    background: currentColor;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.organic-mobile-menu {
+    position: fixed;
+
+    top: 82px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 8vw;
+
+    background: var(--dark);
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    transform: translateY(-120%);
+
+    transition: transform 0.5s ease;
+
+    z-index: 999;
+}
+
+.organic-mobile-menu.open {
+    transform: translateY(0);
+}
+
+.organic-mobile-menu a {
+    color: white;
+
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.organic-hero {
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    color: white;
+}
+
+.organic-hero-bg {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #536b43 0%,
+            #30412f 45%,
+            #172018 100%
+        ),
+        url("images/organic-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.04);
+
+    animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+
+    from {
+        transform: scale(1.04);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.organic-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 20, 13, 0.82),
+            rgba(12, 20, 13, 0.25)
+        );
+}
+
+.organic-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(850px, 90%);
+
+    margin-left: 8vw;
+
+    padding-top: 70px;
+}
+
+.eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.organic-hero h1 {
+    font-family: var(--serif);
+
+    font-size: clamp(4rem, 8vw, 8.5rem);
+
+    font-weight: normal;
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+
+    margin-bottom: 35px;
+}
+
+.organic-hero h1 em {
+    font-weight: normal;
+}
+
+.hero-description {
+    max-width: 560px;
+
+    font-size: 1rem;
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.organic-scroll {
+    position: absolute;
+
+    left: 8vw;
+    bottom: 35px;
+
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.organic-intro {
+    padding: 140px 8vw;
+}
+
+.organic-intro-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+
+    margin-bottom: 70px;
+}
+
+.organic-intro-grid {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 10vw;
+
+    align-items: start;
+}
+
+.organic-intro h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3rem, 5vw, 6rem);
+
+    font-weight: normal;
+    line-height: 0.98;
+
+    letter-spacing: -0.04em;
+}
+
+.organic-intro h2 em {
+    font-weight: normal;
+}
+
+.organic-intro-text {
+    padding-top: 10px;
+}
+
+.organic-intro-text p {
+    max-width: 520px;
+
+    font-size: 1rem;
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+
+    color: #4b554c;
+}
+
+
+/* =========================================================
+   STATEMENT
+   ========================================================= */
+
+.organic-statement {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 700px;
+
+    background: var(--dark);
+
+    color: white;
+}
+
+.statement-image {
+    min-height: 650px;
+
+    padding: 25px;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(83, 107, 67, 0.95),
+            rgba(23, 32, 24, 0.95)
+        ),
+        url("images/organic-soil.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+}
+
+.statement-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 10vw;
+}
+
+.statement-content h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3rem, 5vw, 6rem);
+
+    font-weight: normal;
+    line-height: 0.95;
+
+    letter-spacing: -0.04em;
+
+    margin-bottom: 40px;
+}
+
+.statement-content p:not(.eyebrow) {
+    max-width: 500px;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    line-height: 1.85;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.organic-benefits {
+    padding: 150px 8vw;
+}
+
+.benefits-heading {
+    margin-bottom: 80px;
+}
+
+.benefits-heading h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3.5rem, 6vw, 7rem);
+
+    font-weight: normal;
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+}
+
+.benefits-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid var(--line);
+}
+
+.benefit-card {
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 35px 30px;
+
+    border-right: 1px solid var(--line);
+
+    transition:
+        background 0.4s ease,
+        transform 0.4s ease;
+}
+
+.benefit-card:last-child {
+    border-right: 0;
+}
+
+.benefit-card:hover {
+    background: var(--cream-dark);
+
+    transform: translateY(-8px);
+}
+
+.benefit-number {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+}
+
+.benefit-icon {
+    margin-top: 70px;
+
+    font-size: 2.2rem;
+
+    font-family: var(--serif);
+}
+
+.benefit-card h3 {
+    margin-top: 30px;
+    margin-bottom: 18px;
+
+    font-family: var(--serif);
+
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.benefit-card p {
+    color: #5d665e;
+
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FARM SECTION
+   ========================================================= */
+
+.organic-farm {
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    background: #e9e3d5;
+}
+
+.farm-image {
+    min-height: 650px;
+
+    padding: 30px;
+}
+
+.farm-content {
+    padding: 10vw 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.farm-content h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3rem, 5vw, 5.8rem);
+
+    font-weight: normal;
+
+    line-height: 0.94;
+
+    letter-spacing: -0.04em;
+
+    margin-bottom: 35px;
+}
+
+.farm-content > p:not(.eyebrow) {
+    max-width: 480px;
+
+    line-height: 1.85;
+
+    color: #5c625c;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.organic-button {
+    width: fit-content;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 15px 22px;
+
+    border: 1px solid var(--dark);
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.14em;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.organic-button:hover {
+    background: var(--dark);
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+.organic-button span {
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   PRINCIPLES
+   ========================================================= */
+
+.organic-principles {
+    padding: 150px 8vw;
+}
+
+.principles-header {
+    margin-bottom: 80px;
+}
+
+.principles-header h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3rem, 5vw, 6rem);
+
+    font-weight: normal;
+
+    line-height: 0.94;
+
+    letter-spacing: -0.05em;
+}
+
+.principles-list {
+    border-top: 1px solid var(--line);
+}
+
+.principle {
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    gap: 30px;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid var(--line);
+
+    transition: padding-left 0.4s ease;
+}
+
+.principle:hover {
+    padding-left: 20px;
+}
+
+.principle > span {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+}
+
+.principle h3 {
+    font-family: var(--serif);
+
+    font-size: 2rem;
+    font-weight: normal;
+
+    margin-bottom: 8px;
+}
+
+.principle p {
+    color: #626a63;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.organic-cta {
+    padding: 150px 8vw;
+
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            #647b55,
+            transparent 35%
+        ),
+        var(--dark);
+
+    color: white;
+}
+
+.organic-cta-inner {
+    max-width: 850px;
+}
+
+.organic-cta h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(4rem, 8vw, 8rem);
+
+    font-weight: normal;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.05em;
+
+    margin-bottom: 40px;
+}
+
+.organic-cta-inner > p:not(.eyebrow) {
+    max-width: 500px;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    margin-bottom: 35px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.organic-button.light {
+    border-color: white;
+    color: white;
+}
+
+.organic-button.light:hover {
+    background: white;
+    color: var(--dark);
+}
+
+.organic-button.outline {
+    border-color: rgba(255, 255, 255, 0.35);
+    color: white;
+}
+
+.organic-button.outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.organic-footer {
+    padding: 60px 8vw 30px;
+
+    background: #101610;
+
+    color: white;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-bottom: 70px;
+
+    border-bottom: 1px solid var(--light-line);
+}
+
+.footer-logo {
+    font-family: var(--serif);
+
+    font-size: 1.4rem;
+}
+
+.footer-logo span {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.footer-top p {
+    color: rgba(255, 255, 255, 0.55);
+
+    line-height: 1.7;
+
+    text-align: right;
+}
+
+.footer-bottom {
+    padding-top: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 0.7rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .organic-nav {
+        display: none;
+    }
+
+    .organic-menu-button {
+        display: block;
+    }
+
+    .organic-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .organic-statement {
+        grid-template-columns: 1fr;
+    }
+
+    .statement-image {
+        min-height: 500px;
+    }
+
+    .statement-content {
+        padding: 90px 8vw;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefit-card:nth-child(2) {
+        border-right: 0;
+    }
+
+    .benefit-card:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .organic-farm {
+        grid-template-columns: 1fr;
+    }
+
+    .farm-image {
+        min-height: 500px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .organic-navbar {
+        height: 70px;
+
+        padding: 0 6vw;
+    }
+
+    .organic-mobile-menu {
+        top: 70px;
+    }
+
+    .organic-hero-content {
+        margin-left: 6vw;
+
+        width: 88%;
+
+        padding-top: 40px;
+    }
+
+    .organic-hero h1 {
+        font-size: clamp(3.5rem, 16vw, 5rem);
+
+        line-height: 0.92;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .organic-scroll {
+        left: 6vw;
+        bottom: 25px;
+    }
+
+    .organic-intro {
+        padding: 90px 6vw;
+    }
+
+    .organic-intro-label {
+        margin-bottom: 45px;
+    }
+
+    .organic-intro h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .organic-statement {
+        min-height: auto;
+    }
+
+    .statement-image {
+        min-height: 380px;
+        padding: 15px;
+    }
+
+    .statement-content {
+        padding: 80px 6vw;
+    }
+
+    .statement-content h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .organic-benefits {
+        padding: 90px 6vw;
+    }
+
+    .benefits-heading {
+        margin-bottom: 55px;
+    }
+
+    .benefits-heading h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-card,
+    .benefit-card:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .benefit-card:last-child {
+        border-bottom: 0;
+    }
+
+    .benefit-card {
+        min-height: auto;
+        padding: 30px 5px 45px;
+    }
+
+    .benefit-icon {
+        margin-top: 45px;
+    }
+
+    .farm-image {
+        min-height: 380px;
+        padding: 15px;
+    }
+
+    .farm-content {
+        padding: 80px 6vw;
+    }
+
+    .farm-content h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .organic-principles {
+        padding: 90px 6vw;
+    }
+
+    .principles-header {
+        margin-bottom: 55px;
+    }
+
+    .principles-header h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .principle {
+        grid-template-columns: 45px 1fr;
+        gap: 10px;
+    }
+
+    .principle h3 {
+        font-size: 1.5rem;
+    }
+
+    .organic-cta {
+        padding: 100px 6vw;
+    }
+
+    .organic-cta h2 {
+        font-size: clamp(3.8rem, 16vw, 5.5rem);
+    }
+
+    .organic-button {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .organic-footer {
+        padding: 50px 6vw 25px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        padding-bottom: 45px;
+    }
+
+    .footer-top p {
+        text-align: left;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+}
